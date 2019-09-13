@@ -1,0 +1,37 @@
+#!/usr/bin/env ruby
+
+require 'lib/board'
+
+board = Board.new
+players =
+
+
+
+  game_turn_log = [
+    {
+      player: 1,
+      cmd: :setup,
+      args: {
+        house: [[0,0],[0,1],[1,1]],
+        street: [[0,1],[1,1]]
+      }
+    }, {
+      player: 1,
+
+      noop: true
+    }, {
+      player: 1,
+      build_house: [[0,0],[0,1],[1,1]]
+    }, {
+      player: 1,
+      build_city: [[0,0],[0,1],[1,1]]
+    }, {
+      player: 1,
+      build_street: [[0,0],[0,1]]
+    }
+  ]
+
+
+game = Game.new(board, 1)
+game.commit(Turn.new('SaW', :build_house, [[0,0],[0,1],[1,1]]))
+
